@@ -1,4 +1,4 @@
-# terraform-cross-account-ci-role
+# Cross-account CI role module
 
 CI should not hold long-lived access keys for other accounts. This module creates
 one IAM role in a workload account that a single CI role from the shared-services
@@ -32,7 +32,7 @@ module "ci_role" {
 
 Outputs: `role_arn`, `role_name`. No policy is attached until `resource_arns` is set.
 
-## Limits
+## Known limitations
 
 - No permission boundary and no SCP check.
 - The external ID is only as secret as its storage.
