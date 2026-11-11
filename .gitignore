@@ -3,3 +3,7 @@
 *.tfstate
 *.tfstate.*
 .terraform.lock.hcl
+*.tfplan
+__pycache__/
+*.pyc
+memory/
