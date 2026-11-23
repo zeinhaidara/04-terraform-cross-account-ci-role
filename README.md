@@ -15,7 +15,7 @@ flowchart LR
 
 ```hcl
 module "ci_role" {
-  source = "github.com/example-org/terraform-cross-account-ci-role"
+  source = "github.com/zeinhaidara/04-terraform-cross-account-ci-role"
 
   ci_role_arn = "arn:aws:iam::123456789012:role/ci-runner"
   external_id = var.external_id # keep it in a secret store
@@ -47,3 +47,9 @@ terraform init -backend=false
 terraform validate
 terraform test
 ```
+
+`terraform test` plans against a mocked AWS provider, so it needs no
+credentials. Four runs check that the trust policy names the exact CI role,
+that the external ID is required, that wildcard actions are rejected, and
+that the session lasts one hour. Nothing has been applied to a real AWS
+account.
